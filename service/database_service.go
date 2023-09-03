@@ -2,8 +2,8 @@ package service
 
 import (
 	"fmt"
-	"fremont/config"
-	"fremont/utils"
+	"sacramento/config"
+	"sacramento/utils"
 	"time"
 
 	"gorm.io/driver/postgres"
@@ -15,7 +15,7 @@ var DB *gorm.DB
 var dbRetries = 0
 
 func InitializeDB() {
-	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=UTC", config.PostgresHost, config.PostgresUser, config.PostgresPassword, config.PostgresDatabase, config.PostgresPort)
+	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=require TimeZone=UTC", config.PostgresHost, config.PostgresUser, config.PostgresPassword, config.PostgresDatabase, config.PostgresPort)
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		if dbRetries < 15 {

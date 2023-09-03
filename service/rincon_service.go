@@ -3,10 +3,10 @@ package service
 import (
 	"bytes"
 	"encoding/json"
-	"fremont/config"
-	"fremont/utils"
 	"net/http"
 	"os"
+	"sacramento/config"
+	"sacramento/utils"
 	"strconv"
 	"strings"
 	"time"
@@ -53,6 +53,7 @@ func RegisterRincon() {
 		}
 		utils.SugarLogger.Infoln("Registered service with Rincon! Service ID: " + strconv.Itoa(config.Service.ID))
 		RegisterRinconRoute("/" + strings.ToLower(config.Service.Name))
+		RegisterRinconRoute("/auth")
 	}
 }
 

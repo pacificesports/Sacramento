@@ -1,8 +1,8 @@
 package config
 
 import (
-	"fremont/model"
 	"os"
+	"sacramento/model"
 	"strings"
 )
 

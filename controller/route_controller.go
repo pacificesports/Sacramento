@@ -2,10 +2,10 @@ package controller
 
 import (
 	"context"
-	"fremont/config"
-	"fremont/service"
-	"fremont/utils"
 	"log"
+	"sacramento/config"
+	"sacramento/service"
+	"sacramento/utils"
 	"strings"
 
 	"github.com/gin-gonic/gin"
@@ -13,6 +13,7 @@ import (
 
 func InitializeRoutes(router *gin.Engine) {
 	router.GET("/"+strings.ToLower(config.Service.Name)+"/ping", Ping)
+	router.POST("/auth/login/:uid", LoginWithCustomID)
 }
 
 func RequestLogger() gin.HandlerFunc {

@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"fremont/config"
 	"net/http"
+	"sacramento/config"
 
 	"github.com/gin-gonic/gin"
 )

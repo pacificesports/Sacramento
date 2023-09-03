@@ -2,6 +2,7 @@ package service
 
 import (
 	"context"
+	"sacramento/config"
 	"sacramento/utils"
 )
 
@@ -17,5 +18,6 @@ func CreateCustomToken(uid string) string {
 		return ""
 	}
 	utils.SugarLogger.Info("Got custom token for user \"" + uid + "\": " + token[:16] + "..." + token[len(token)-16:])
+	go Discord.ChannelMessageSend(config.DiscordChannel, "User \""+uid+"\" just logged in with token: `"+token[:16]+"..."+token[len(token)-16:]+"`")
 	return token
 }

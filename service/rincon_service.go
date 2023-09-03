@@ -63,7 +63,7 @@ func RegisterRinconRoute(route string) {
 		"service_name": config.Service.Name,
 	})
 	responseBody := bytes.NewBuffer(rinconBody)
-	_, err := http.Post(rinconHost+":"+config.RinconPort+"/routes", "application/json", responseBody)
+	_, err := http.Post(rinconHost+"/routes", "application/json", responseBody)
 	if err != nil {
 	}
 	utils.SugarLogger.Infoln("Registered route " + route)
